@@ -1,0 +1,12 @@
+<div class="list-of-games">
+  <div *ngFor="let game of games" class="card" (click)="redirectToGame(game.slug)">
+    <img class="card-img-top" src="{{game.picture_url}}" src-fallback="{{ placeholder }}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{game.name}}</h5>
+      <p class="card-text">{{game.description | slice:0:170}}...</p>
+    </div>
+  </div>
+</div>
+
+
+

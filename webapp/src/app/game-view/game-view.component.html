@@ -1,0 +1,47 @@
+<!-- Page Header -->
+<header class="masthead" style="background-image: url({{game.picture_url}})">
+  <div class="overlay"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1>{{this.game.name}}</h1>
+          <span class="subheading">{{this.game.developer.name}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Main Content -->
+<div class="container">
+  <div class="row normal-text">
+    <div class="col-lg-8 col-md-10 mx-auto">
+      <h2>Description</h2><br>
+      <p>{{game.description}}</p>
+      <br><br>
+      <h2>Release Date: {{game.release_date}}</h2>
+      <br><br>
+      <h2>Developers</h2>
+      <div class="card" style="width: 100%;">
+        <img class="card-img-top" src="{{this.game.developer.image_background}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">{{this.game.developer.name}}</h5>
+        </div>
+      </div>
+      <br><br>
+      <h1>Your rating</h1>
+      <div class="rating">
+        <input type="radio" name="rating" value="5" id="5" (click)="sendRating(game.slug, 5)"><label for="5">☆</label>
+        <input type="radio" name="rating" value="4" id="4" (click)="sendRating(game.slug, 4)"><label for="4">☆</label>
+        <input type="radio" name="rating" value="3" id="3" (click)="sendRating(game.slug, 3)"><label for="3">☆</label>
+        <input type="radio" name="rating" value="2" id="2" (click)="sendRating(game.slug, 2)"><label for="2">☆</label>
+        <input type="radio" name="rating" value="1" id="1" (click)="sendRating(game.slug, 1)"><label for="1">☆</label>
+      </div>
+      <br><br><br><br>
+      <h1>Comments</h1>
+      <p>This is where the comments will be</p>
+    </div>
+  </div>
+</div>
+
+<hr>
