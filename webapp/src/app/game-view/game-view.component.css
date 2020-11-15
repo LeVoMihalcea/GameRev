@@ -336,3 +336,13 @@ header.masthead .post-heading .meta a {
 .rating:hover>input:checked~label:before {
   opacity: 0.4
 }
+
+.form-control{
+  width: 100%;
+}
+
+.comment-card{
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+}

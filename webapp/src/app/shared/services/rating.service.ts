@@ -7,6 +7,7 @@ import {Game} from '../model/game.model';
 import {Observable} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {Developer} from "../model/developer.model";
+import {Rating} from "../model/rating.model";
 
 @Injectable()
 export class RatingService {
@@ -15,15 +16,18 @@ export class RatingService {
   constructor(private httpClient: HttpClient) {
   }
 
-  getGames(): Observable<Game[]> {
-    return this.httpClient
-      .get<Array<Game>>(this.API_URL);
-  }
-
-
   sendRating(slug: string, number: number) {
-    console.log("sending review", slug, number)
+    console.log("sending rating", slug, number);
     this.httpClient.post(this.API_URL,
-      {gameSlug: slug, comment: 'Nothing yet', rating: number}).subscribe();
+      {gameSlug: slug, rating: number}).subscribe();
   }
+
+  getRating(slug: string): Observable<Rating>{
+    console.log("getting rating", slug);
+    return this.httpClient
+      .get<Rating>(this.API_URL, {
+        params: {slug: slug}
+      });
+  }
+
 }

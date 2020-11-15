@@ -61,7 +61,6 @@ export class GameService {
   }
 
   mapNewDeveloper(developers: any): Developer {
-    console.log(developers);
     return new Developer(developers[0].name, developers[0].slug,
       developers[0].games_count, developers[0].image_background);
   }

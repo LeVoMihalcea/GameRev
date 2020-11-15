@@ -1,4 +1,4 @@
-package leo.gamerev.service;
+package leo.gamerev.service.review;
 
 import leo.gamerev.domain.Review;
 import leo.gamerev.repository.ReviewRepository;
@@ -48,15 +48,14 @@ public class ReviewServiceImplementation implements ReviewService {
     }
 
     @Override
-    public Review updateReview(Long reviewId, String gameSlug, String comment, Float rating) {
-        log.trace("updateReview: id={}, gameSlug={}, comment={}, rating={}",
-                reviewId, gameSlug, comment, rating);
+    public Review updateReview(Long reviewId, String gameSlug, Float rating) {
+        log.trace("updateReview: id={}, gameSlug={}, rating={}",
+                reviewId, gameSlug, rating);
 
         Optional<Review> foundReview = reviewRepository.findById(reviewId);
 
         foundReview.ifPresent(review -> {
             review.setGameSlug(gameSlug);
-            review.setComment(comment);
             review.setRating(rating);
         });
 

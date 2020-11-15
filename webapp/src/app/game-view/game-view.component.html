@@ -29,8 +29,15 @@
         </div>
       </div>
       <br><br>
+      <h1>Community Rating</h1>
+      <div class="community-rating">
+        <h1 class="community-rating">{{this.rating.grade}}</h1>
+        <p>From {{this.rating.numberOfVotes}}</p>
+      </div>
+      <br><br>
       <h1>Your rating</h1>
       <div class="rating">
+
         <input type="radio" name="rating" value="5" id="5" (click)="sendRating(game.slug, 5)"><label for="5">☆</label>
         <input type="radio" name="rating" value="4" id="4" (click)="sendRating(game.slug, 4)"><label for="4">☆</label>
         <input type="radio" name="rating" value="3" id="3" (click)="sendRating(game.slug, 3)"><label for="3">☆</label>
@@ -38,10 +45,18 @@
         <input type="radio" name="rating" value="1" id="1" (click)="sendRating(game.slug, 1)"><label for="1">☆</label>
       </div>
       <br><br><br><br>
-      <h1>Comments</h1>
-      <p>This is where the comments will be</p>
+      <h1>Comments</h1><br>
+      <input class="form-control mr-sm-2 bg-dark text-light" type="search" placeholder="Search" [(ngModel)]="commentValue"
+             (search)="sendComment(commentValue)" aria-label="Enter your comment">
+      <p>Other comments</p>
+      <div *ngFor="let comment of comments" class="card comment-card">
+        <div class="card-body">
+          <h5 class="card-title">{{comment.date.toString() | slice:0:10}}</h5>
+          <p class="card-text">{{comment.comment}}</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
-<hr>
+<br><br><br><br>

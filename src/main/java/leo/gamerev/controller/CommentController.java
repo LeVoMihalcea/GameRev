@@ -1,7 +1,7 @@
 package leo.gamerev.controller;
 
-import leo.gamerev.domain.Review;
-import leo.gamerev.service.review.ReviewService;
+import leo.gamerev.domain.Comment;
+import leo.gamerev.service.comment.CommentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
@@ -14,30 +14,25 @@ import java.util.List;
 import java.util.Map;
 
 @CrossOrigin(origins = "*", maxAge = 3600)
-@RequestMapping("api/v1/review")
+@RequestMapping("api/v1/comment")
 @RestController
-public class ReviewController {
+public class CommentController {
 
-    private final ReviewService reviewService;
+    private final CommentService commentService;
 
     @Autowired
-    public ReviewController(ReviewService reviewService) {
-        this.reviewService = reviewService;
+    public CommentController(CommentService commentService) {
+        this.commentService = commentService;
     }
 
     @PostMapping
-    public void addReview(@Valid @RequestBody Review review) {
-        reviewService.saveReview(review);
+    public void addComment(@Valid @RequestBody Comment comment) {
+        commentService.saveComment(comment);
     }
 
     @GetMapping
-    public List<Review> getAllReviews() {
-        return reviewService.findAll();
-    }
-
-    @PutMapping(path = "{id}")
-    public void updateReview(@PathVariable("id") Long id, @Valid @RequestBody Review review) {
-        reviewService.updateReview(id, review.getGameSlug(), review.getRating());
+    public List<Comment> getAllComments() {
+        return commentService.findAll();
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)

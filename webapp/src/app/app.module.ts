@@ -10,6 +10,7 @@ import {GameService} from './shared/services/game.service';
 import {ImgFallbackModule} from "ngx-img-fallback";
 import { GameViewComponent } from './game-view/game-view.component';
 import {RatingService} from "./shared/services/rating.service";
+import {CommentService} from "./shared/services/comment.service";
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import {RatingService} from "./shared/services/rating.service";
     AppRoutingModule,
     ImgFallbackModule
   ],
-  providers: [GameService, RatingService],
+  providers: [GameService, RatingService, CommentService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

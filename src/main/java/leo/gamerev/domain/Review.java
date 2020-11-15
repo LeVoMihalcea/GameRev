@@ -1,11 +1,11 @@
 package leo.gamerev.domain;
 
 import lombok.*;
-import javax.validation.constraints.NotBlank;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Getter
@@ -14,12 +14,8 @@ import javax.validation.constraints.Min;
 @AllArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class Review extends BaseEntity<Long>{
-    //todo: not returning a message
     @NotBlank(message = "Game Slug cannot be empty")
     private String gameSlug;
-
-    @NotBlank(message = "Comment cannot be empty")
-    private String comment;
 
     @Min(value=1, message = "Rating must be higher than 1")
     @Max(value=10, message = "Rating must be lower than 10")
@@ -32,7 +28,6 @@ public class Review extends BaseEntity<Long>{
     public String toString() {
         return "Review{" +
                 "gameSlug='" + gameSlug + '\'' +
-                ", comment='" + comment + '\'' +
                 ", rating=" + rating +
                 ", numberOfVotes=" + numberOfVotes +
                 '}';

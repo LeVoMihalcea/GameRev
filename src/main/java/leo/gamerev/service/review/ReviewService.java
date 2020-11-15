@@ -1,4 +1,4 @@
-package leo.gamerev.service;
+package leo.gamerev.service.review;
 
 import leo.gamerev.domain.Review;
 
@@ -10,7 +10,7 @@ public interface ReviewService {
 
     Review saveReview(Review review);
 
-    Review updateReview(Long reviewId, String gameSlug, String comment, Float rating);
+    Review updateReview(Long reviewId, String gameSlug, Float rating);
 
     Optional<Review> findOne(String gameSlug);
 

@@ -1,0 +1,9 @@
+API jocuri: 
+https://api.rawg.io/docs/
+
+Spring Security cu Angular: 
+https://spring.io/guides/tutorials/spring-security-and-angular-js/
+
+Create a Spring Boot App with Angular as FE:
+https://github.com/dsyer/spring-boot-angular
+
