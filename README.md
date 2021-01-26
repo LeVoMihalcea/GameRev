@@ -1,4 +1,4 @@
-### GameRev
+# GameRev
 
 An application built for review-ing games.
 It uses an external API for searching the games
